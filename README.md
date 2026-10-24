@@ -1,5 +1,7 @@
 # Vedar MCP — Kamchatka travel for AI agents
 
+English | [简体中文](README_zh.md)
+
 Remote [Model Context Protocol](https://modelcontextprotocol.io) server of **[Vedar](https://vedarai.ru)** — a Kamchatka (Russia) travel platform with tours from local operators, transfers, car rental, lodging, a trip planner and live volcano / weather / safety data.
 
 - **Endpoint:** `https://vedarai.ru/api/mcp`
