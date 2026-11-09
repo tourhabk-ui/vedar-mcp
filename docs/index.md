@@ -9,6 +9,7 @@ Vedar（https://vedarai.ru）——堪察加旅游平台，提供旅游线路、
 - [Как мы открыли туристический портал Камчатки для ИИ-агентов по A2A](a2a-kamchatka-ai-agents-ru.html) — визитка агента, curl, человек подтверждает заявку
 
 ## 中文文章 / Chinese articles
+- [我们如何用 A2A 协议把堪察加旅游门户开放给 AI 智能体](zh/a2a-kamchatka-ai-agents.html) — open A2A agent for Kamchatka
 - [哈尔滨周六出发：免签一周堪察加火山与棕熊之旅](zh/harbin-kamchatka-visa-free-week.html) — 7-day visa-free trip from Harbin
 - [用 MCP 把俄罗斯一个地区的小旅行社接入 AI 智能体：22 个工具的实践](zh/mcp-travel-agency-22-tools.html) — connecting a travel agency to AI agents via MCP
 
