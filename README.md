@@ -9,7 +9,7 @@ Remote [Model Context Protocol](https://modelcontextprotocol.io) server of **[Ve
 - **Auth:** none
 - **Docs:** https://vedarai.ru/mcp
 
-Lookup tools are read-only. The request tools (`create_*`, `request_charter`) only send a request that a human manager/operator confirms by phone — there is no payment through the platform, and personal data is sent only with the traveller's explicit consent (`consent: true`).
+Lookup tools are read-only. The request tools (`create_*`, `request_charter`) only send a request that a human manager/operator confirms by phone — there is no payment through the platform, and personal data is sent only with the traveller's explicit consent (`consent: true`). `change_request` cancels a tour request or moves it to another date by its key, only when the person asks.
 
 ## Tools
 
@@ -26,17 +26,20 @@ Tool list as returned by `tools/list` on the live endpoint:
 - `search_car_rental` — Use when the user wants to rent a car, SUV, 4x4 or minibus in Kamchatka (car rental, car hire): self-drive, price per day, deposit.
 - `search_gear` — Gear rental in Kamchatka from platform partners.
 - `safety_status` — Kamchatka regional safety status: active alerts (seismic, volcanic, weather, MChS) with their source and dates, plus elevated volcanoes (KVERT, KB GS RAS).
-- `make_trip_plan` — Day-by-day Kamchatka trip plan with weather and live availability; returns a plan ID for edit_trip_plan.
+- `make_trip_plan` — Day-by-day Kamchatka trip plan with live availability and season warnings; returns a plan ID for edit_trip_plan. No forecast: use get_weather.
 - `edit_trip_plan` — Edit a Kamchatka trip plan from make_trip_plan by its ID: add, remove or move a day, change lodging level, or apply a flight delay the traveller reports; untouched days stay as they were.
 - `get_tour_availability` — Use when the user asks if a Kamchatka tour has free seats: live availability by date, free seats and nearest open dates.
+- `compare_tours` — Side-by-side facts for 2-4 Kamchatka tours on what the user cares about: price or group total, duration, dates, inclusions, cancellation, pickup, operator. No ranking.
 - `search` — Keyword search across Vedar Kamchatka: operator tours, places, stays, routes; returns up to 10 results with id for fetch, title and canonical url.
 - `fetch` — Full text of one Vedar Kamchatka record by id from search (tour, place, stay, route): description, price, program, safety facts, canonical url.
-- `get_request_status` — Status of a Kamchatka request by the key from create_lead, create_booking_request, create_stay_request, request_charter or create_car_rental_request: operator answer or who got it.
+- `get_request_status` — Kamchatka request status by key from create_lead, create_booking_request, create_stay_request, request_charter, create_car_rental_request, create_trip_request. No client name or phone.
+- `change_request` — Cancel a Kamchatka tour request or move it to another date by its status key, only when the person asks: done at once before the operator answers, sent to the operator as a request after.
 - `create_lead` — Tour-selection request for Kamchatka when no tour or date is chosen yet; human-confirmed by a manager, no payment.
 - `create_booking_request` — Use when the user wants to book a Kamchatka tour on a date: live availability checked first, human-confirmed by the operator, no payment.
 - `create_stay_request` — Kamchatka stay request: dates and guests go to the owner, human-confirmed by the owner, no payment.
 - `request_charter` — Whole-vehicle (vakhtovka, minibus) request to a Kamchatka charter carrier: destination, dates, group size; human-confirmed by a manager, no payment.
 - `create_car_rental_request` — Two-step Kamchatka self-drive car rental request: step 1 returns a draft and confirmation code; step 2 only after the person explicitly agrees.
+- `create_trip_request` — Whole Kamchatka trip in one request: tour + stay + charter vehicle under one trip id; each partner sees the rest. Human-confirmed, no payment.
 
 ## Connect
 
